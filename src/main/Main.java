@@ -117,7 +117,7 @@ public class Main {
         if (rek != 0 && pin != 0) {
             System.out.println("-----------ID PEMBAYARAN : #" + data.getPayId() + " ----------");
             System.out.println("-----------Status : " + data.getStatus() + " ----------");
-            System.out.println("BERHASIL ! Melanjutkan ke konfirmasi pemesanan");
+            System.out.println("BERHASIL ! Anda Telah Terdaftar, silakan gunakan ID PEMBAYARAN saat check in");
             //input.nextInt();
 
         } else {
