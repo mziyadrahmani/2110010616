@@ -10,7 +10,7 @@ public class Main {
         System.out.println("-----------------------------------------------");
         System.out.println("--------MARRISA HOLIDAY TOUR AND TRAVEL--------");
         System.out.println("-----------------------------------------------");
-        registrasi();
+        registrasi();//panggil method 
     }
 
     static void registrasi() {
@@ -27,11 +27,11 @@ public class Main {
         System.out.print("Tanggal Keberangkatan: ");
         String tglBerangkat = input.nextLine();
         System.out.println("-------------------BERHASIL !------------------");
-        Pengunjung setObj = new Pengunjung(nama, email, noTelp, tglBerangkat);
-        destinasi();
+        Pengunjung setObj = new Pengunjung(nama, email, noTelp, tglBerangkat);//Set data pengunjung ke masing masing var
+        destinasi(setObj);
     }
 
-    static void destinasi() {
+    static void destinasi(Pengunjung x) {//Alasan saya menggunakan x agar lebih mudah mengoper data registrasi pengunjung ke method berikutnya
         Scanner input = new Scanner(System.in);
         BookingWisata data = new BookingWisata();
 
@@ -48,14 +48,14 @@ public class Main {
         if (selectedKota.equals("Destinasi Tidak Ditemukan! harap ulangi")) {
             System.out.println(selectedKota);
             System.out.println("----------------------------------------");
-            destinasi();
+            destinasi(x);
         } else {
             System.out.println("Destinasi Ditemukan ! Melanjutkan ke menu booking ...");
-            paket(selectedKota, data);
+            paket(selectedKota, data, x);
         }
     }
 
-    static void paket(String kota, BookingWisata bookdata) {
+    static void paket(String kota, BookingWisata bookdata, Pengunjung x) {
         Scanner input = new Scanner(System.in);
         PaketWisata data = new PaketWisata();
         data.setDestinasiWisata(kota, kota);
@@ -73,41 +73,39 @@ public class Main {
         System.out.print("KONFIRMASI ? (ketik 1 untuk ya, ketik 0 untuk batal)");
         int konfirmasi = input.nextInt();
         if (konfirmasi == 1) {
-            booking(data, bookdata);
+            booking(data, bookdata, x);
         } else {
-            destinasi();
+            destinasi(x);
         }
     }
 
-    static void booking(PaketWisata pakData, BookingWisata kota) {
+    static void booking(PaketWisata pakData, BookingWisata kota, Pengunjung data) {
         Scanner input = new Scanner(System.in);
-
-        Pengunjung data = new Pengunjung();
 
         System.out.println("-----------------------------------------------");
         System.out.println("------------------BOOKING INFO-----------------");
         System.out.println("-----------------------------------------------");
         System.out.println("Booking ID: #" + kota.getBookingId());
-        System.out.println("Nama: #" + data.getNama());
-        System.out.println("Email : #" + data.getEmail());
-        System.out.println("NoTelp: #" + data.getNoTelp());
+        System.out.println("Nama: " + data.getNama());
+        System.out.println("Email : " + data.getEmail());
+        System.out.println("NoTelp: " + data.getNoTelp());
         System.out.println("Kota: " + kota.getDestinasiWisata());
         System.out.println("Harga: " + pakData.getHarga());
-        System.out.println("Tgl Berangkat: #" + data.getDate());
+        System.out.println("Tgl Berangkat: " + data.getDate());
         System.out.println("-----------------------------------------------");
         System.out.print("KONFIRMASI ? (ketik 1 untuk ya, ketik 0 untuk batal)");
         int konfirmasi = input.nextInt();
         if (konfirmasi == 1) {
             pembayaran(kota);
         } else {
-            destinasi();
+            destinasi(data);
         }
 
     }
 
     static void pembayaran(BookingWisata paket) {
         Scanner input = new Scanner(System.in);
-        Pembayaran data = new Pembayaran();
+
         System.out.println("-----------------------------------------------");
         System.out.println("-------------------PEMBAYARAN------------------");
         System.out.println("-----------------------------------------------");
@@ -115,13 +113,15 @@ public class Main {
         int rek = input.nextInt();
         System.out.println("Masukkan PIN Anda : ");
         int pin = input.nextInt();
+        Pembayaran data = new Pembayaran(rek);
         if (rek != 0 && pin != 0) {
+            System.out.println("-----------ID PEMBAYARAN : #" + data.getPayId() + " ----------");
+            System.out.println("-----------Status : " + data.getStatus() + " ----------");
             System.out.println("BERHASIL ! Melanjutkan ke konfirmasi pemesanan");
-            System.out.println("BERHASIL ! Melanjutkan ke konfirmasi pemesanan");
-            input.nextInt();
+            //input.nextInt();
 
         } else {
-            System.out.println("GAGAL !");
+            System.out.println("GAGAL ! Mohon untuk mengulang !");
             input.nextInt();
             pembayaran(paket);
         }

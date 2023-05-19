@@ -1,13 +1,13 @@
 package data;
 
-
 public class PaketWisata {
+
     private int harga;
     private String pelayanan;
     private String fasilitas;
     private String paketStatus;
-    private int noPaket ;
-    
+    private int noPaket;
+
     public void setDestinasiWisata(String targetWisata, String Destinasi) {
         switch (Destinasi) {
             default:
@@ -19,7 +19,7 @@ public class PaketWisata {
                 this.pelayanan = "Tour Wisata";
                 this.paketStatus = "TERSEDIA";
                 this.fasilitas = "Hotel Bintang 1, Makan, Bus AC";
-                 
+
                 break;
             case "Banjarbaru":
                 this.noPaket = 2;
@@ -39,7 +39,7 @@ public class PaketWisata {
                 break;
         }
     }
-    
+
     public int getHarga() {
         return this.harga;
     }

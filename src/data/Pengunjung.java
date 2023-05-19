@@ -12,7 +12,7 @@ public class Pengunjung {
     public Pengunjung(String nama, String email, String noTelp, String tglBerangkat) {//OVERLOAD CONSTRUCTOR
         setDataPengunjung(nama, email, noTelp, tglBerangkat);
     }
-    private void setDataPengunjung(String a, String b, String c, String d){
+    public void setDataPengunjung(String a, String b, String c, String d){
         this.nama = a;
         this.email = b;
         this.noTelp = c;
