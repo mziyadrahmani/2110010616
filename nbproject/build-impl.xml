@@ -1068,7 +1068,7 @@ is divided into following sections:
             <entry key="${basedir}" value=""/>
         </propertyfile>
     </target>
-    <target depends="init,-check-automatic-build,-clean-after-automatic-build" name="-verify-automatic-build"/>
+    <target depends="init,-check-automatic-build,-clean-after-automatic-build" name="-verifikasi-automatic-build"/>
     <target depends="init" name="-check-automatic-build">
         <available file="${build.classes.dir}/.netbeans_automatic_build" property="netbeans.automatic.build"/>
     </target>
@@ -1108,7 +1108,7 @@ is divided into following sections:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,deps-jar,-verify-automatic-build,-pre-pre-compile,-pre-compile,-do-compile,-post-compile" description="Compile project." name="compile"/>
+    <target depends="init,deps-jar,-verifikasi-automatic-build,-pre-pre-compile,-pre-compile,-do-compile,-post-compile" description="Compile project." name="compile"/>
     <target name="-pre-compile-single">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
@@ -1122,7 +1122,7 @@ is divided into following sections:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
-    <target depends="init,deps-jar,-verify-automatic-build,-pre-pre-compile,-pre-compile-single,-do-compile-single,-post-compile-single" name="compile-single"/>
+    <target depends="init,deps-jar,-verifikasi-automatic-build,-pre-pre-compile,-pre-compile-single,-do-compile-single,-post-compile-single" name="compile-single"/>
     <!--
                 ====================
                 JAR BUILDING SECTION
@@ -1565,9 +1565,9 @@ is divided into following sections:
                 <length length="0" string="${test.module.name}" when="greater"/>
             </and>
         </condition>
-        <fileset dir="${build.test.classes.dir}" id="run.test.packages.internal" includes="**/*.class"/>
+        <fileset dir="${build.test.classes.dir}" id="run.test.paket.internal" includes="**/*.class"/>
         <property location="${build.test.classes.dir}" name="build.test.classes.dir.abs.internal"/>
-        <pathconvert pathsep=" " property="run.test.addexports.internal" refid="run.test.packages.internal">
+        <pathconvert pathsep=" " property="run.test.addexports.internal" refid="run.test.paket.internal">
             <chainedmapper>
                 <regexpmapper from="^(.*)\Q${file.separator}\E.*\.class$$" to="\1"/>
                 <filtermapper>
