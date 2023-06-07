@@ -1,4 +1,4 @@
-package Classes;
+package Booking;
 
 public class PaketWisata {
     private int noPaket;
@@ -72,7 +72,7 @@ public class PaketWisata {
      * @return
      */
     @Override   //Disuruh bikin oleh apache
-    public String toString() {//return value dengan output string, override digunakan untuk menampilkan String yang sudah ada sekaligus teks keterangannya
+    public String toString() {//return value dengan output string, override digunakan untuk menampilkan String yang sudah ada sekaligus teks 
         return "Paket Wisata " + noPaket + ": " +
                 "Kota Wisata = " + kotaWisata +
                 ", Harga = " + harga +

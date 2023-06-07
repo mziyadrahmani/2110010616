@@ -1,4 +1,4 @@
-package Classes;
+package Booking;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -49,6 +49,7 @@ public class BookingWisata {
         System.out.println("ID Booking: " + idBooking);
         System.out.println("Nama: " + nama);
         System.out.println("Email: " + email);
+        System.out.println("Alamat: " + alamat);
         System.out.println("Nomor Telepon: " + noTelp);
         System.out.println("Kota Wisata: " + kotaWisata);
         System.out.println("Harga: " + harga);

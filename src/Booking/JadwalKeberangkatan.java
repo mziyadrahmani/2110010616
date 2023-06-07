@@ -1,4 +1,4 @@
-package Classes;
+package Booking;
 
 import java.util.Date;
 

@@ -1,6 +1,6 @@
 package Dataset;
 
-import Classes.PaketWisata;
+import Booking.PaketWisata;
 
 public class DaftarPemesanan {
     private static final PaketWisata[] paketWisata = {
