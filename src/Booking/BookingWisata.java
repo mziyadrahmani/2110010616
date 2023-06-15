@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class BookingWisata {
 
-    private int idBooking;
+    int idBooking;
     private String nama;
     private String email;
     private String alamat;
     private String noTelp;
-    private String kotaWisata;
-    private String harga;
-    private Date tglBerangkat;
+    String kotaWisata;
+    String harga;
+    Date tglBerangkat;
 
     public BookingWisata() {
     }
@@ -27,35 +27,7 @@ public class BookingWisata {
         this.tglBerangkat = tglBerangkat;
     }
 
-    public void insertIdentitas() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Masukkan identitas Anda:");
-
-        System.out.print("Nama: ");
-        this.nama = scanner.nextLine();
-
-        System.out.print("Email: ");
-        this.email = scanner.nextLine();
-
-        System.out.print("Alamat: ");
-        this.alamat = scanner.nextLine();
-        
-        System.out.print("Nomor Telepon: ");
-        this.noTelp = scanner.nextLine();
-    }
-
-    public void registrasi() {
-        System.out.println("Pemesanan berhasil!");
-        System.out.println("ID Booking: " + idBooking);
-        System.out.println("Nama: " + nama);
-        System.out.println("Email: " + email);
-        System.out.println("Alamat: " + alamat);
-        System.out.println("Nomor Telepon: " + noTelp);
-        System.out.println("Kota Wisata: " + kotaWisata);
-        System.out.println("Harga: " + harga);
-        System.out.println("Tanggal Berangkat: " + tglBerangkat);
-        System.out.println("Terima kasih telah melakukan pemesanan.");
-    }
+    
 
 
     public int getIdBooking() {
