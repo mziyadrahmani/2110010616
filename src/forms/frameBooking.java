@@ -191,6 +191,12 @@ public class frameBooking extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        if (txtBookid.getText().isEmpty() || txtNama.getText().isEmpty() || txtEmail.getText().isEmpty()
+                || txtTelepon.getText().isEmpty() || txtKotaWisata.getText().isEmpty()
+                || txtHarga.getText().isEmpty() || txtTglBerangkat.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mohon isi semua data!.");
+            return;
+        }
         book.insertBookingId(Integer.valueOf(txtBookid.getText()));
         book.insertNama(txtNama.getText());
         book.insertEmail(txtEmail.getText());
@@ -198,9 +204,9 @@ public class frameBooking extends javax.swing.JFrame {
         book.insertKotaWisata(txtKotaWisata.getText());
         book.insertHarga(Integer.parseInt(txtHarga.getText()));
         book.insertTglBerangkat(txtTglBerangkat.getText());
-        
+
         JOptionPane.showMessageDialog(this, "Pemesanan Paket Berhasil!");
-        
+
         dispose();
     }//GEN-LAST:event_btnBookActionPerformed
 
@@ -208,7 +214,25 @@ public class frameBooking extends javax.swing.JFrame {
         return book;
     }
     
+    public String getIsiArray(int i){
+        String isiArray;
+        isiArray = "Booking ID : " + book.getBookingId().get(i)
+                + "\nNama : " + book.getNama().get(i)
+                + "\nEmail : " + book.getEmail().get(i)
+                + "\nTelp : " + book.getTelp().get(i)
+                + "\nKota Wisata :" + book.getKotaWisata().get(i)
+                + "\nHarga :" + book.getHarga().get(i)
+                + "\nJTglBerangkat :" + book.getTglBerangkat().get(i);
+        return isiArray;
+        
+    }
+    public int getIndex(){
+        int index = book.getBookingId().size();
+        return index;
+    }
+
     private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnKembaliActionPerformed
 
@@ -246,6 +270,7 @@ public class frameBooking extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBook;
